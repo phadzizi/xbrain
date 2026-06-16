@@ -28,6 +28,7 @@ export default function CardFlipGame() {
   const [bestScore, setBestScoreState] = useState<number | null>(null);
 
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const flipBackRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const { soundEnabled } = useSettingsStore();
 
   const playSound = useCallback(
@@ -62,7 +63,10 @@ export default function CardFlipGame() {
   }
 
   useEffect(() => {
-    return stopTimer;
+    return () => {
+      stopTimer();
+      if (flipBackRef.current !== null) clearTimeout(flipBackRef.current);
+    };
   }, []);
 
   function handleCardClick(card: Card) {
@@ -105,13 +109,14 @@ export default function CardFlipGame() {
       setCards((prev) => prev.map((c) => (c.id === card.id ? { ...c, status: 'flipped' } : c)));
       setFlippedIds([firstId, card.id]);
 
-      setTimeout(() => {
+      flipBackRef.current = setTimeout(() => {
         setCards((prev) =>
           prev.map((c) =>
             c.id === firstId || c.id === card.id ? { ...c, status: 'hidden' as const } : c
           )
         );
         setFlippedIds([]);
+        flipBackRef.current = null;
       }, FLIP_BACK_DELAY);
     }
   }

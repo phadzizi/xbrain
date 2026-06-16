@@ -48,8 +48,11 @@ test.describe('Card Flip — happy path', () => {
     for (const [, ids] of pairMap) {
       await page.locator(`[data-card-id="${ids[0]}"]`).click();
       await page.locator(`[data-card-id="${ids[1]}"]`).click();
-      // Brief pause so the match animation settles before next pair
-      await page.waitForTimeout(150);
+      // Wait for matched status before clicking the next pair
+      await expect(page.locator(`[data-card-id="${ids[0]}"]`)).toHaveAttribute(
+        'data-card-status',
+        'matched'
+      );
     }
 
     await expect(page.getByTestId('game-over-screen')).toBeVisible();
