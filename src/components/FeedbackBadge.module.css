@@ -1,0 +1,22 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  color: #fff;
+}
+
+.correct {
+  background-color: var(--color-success);
+}
+
+.wrong {
+  background-color: var(--color-error);
+}
+
+.neutral {
+  background-color: var(--color-surface-raised);
+  color: var(--color-text-muted);
+}

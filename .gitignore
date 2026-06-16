@@ -4,3 +4,6 @@ dist
 *.local
 android
 ios
+.idea
+playwright-report
+test-results

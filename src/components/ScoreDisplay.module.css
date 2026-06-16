@@ -1,0 +1,22 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.number {
+  font-size: var(--text-5xl);
+  font-weight: var(--font-bold);
+  color: var(--color-text);
+  line-height: var(--leading-tight);
+  font-variant-numeric: tabular-nums;
+}
+
+.label {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
