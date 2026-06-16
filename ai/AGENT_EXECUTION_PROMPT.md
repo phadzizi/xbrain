@@ -55,8 +55,10 @@ Your task is to implement the feature request below and produce a PR-ready branc
 ## Branch and commit
 
 ```
+
 git checkout -b feature/[short-description]
 git commit -m "feat: [what changed]"
+
 ```
 
 ## Feature request

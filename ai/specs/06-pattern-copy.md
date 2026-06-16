@@ -43,14 +43,14 @@ As a player, I want to see a colored pattern briefly and then recreate it from m
 ## Difficulty progression
 
 | Level | Grid size | Colored cells | Colors in palette | Preview time |
-|---|---|---|---|---|
-| 1 | 3×3 | 4 | 2 | 3s |
-| 2 | 3×3 | 5 | 3 | 3s |
-| 3 | 4×4 | 7 | 3 | 3s |
-| 4 | 4×4 | 9 | 4 | 2.5s |
-| 5 | 4×4 | 11 | 4 | 2s |
-| 6 | 5×5 | 13 | 4 | 2s |
-| 7+ | 5×5 | 15+ | 5 | 2s |
+| ----- | --------- | ------------- | ----------------- | ------------ |
+| 1     | 3×3       | 4             | 2                 | 3s           |
+| 2     | 3×3       | 5             | 3                 | 3s           |
+| 3     | 4×4       | 7             | 3                 | 3s           |
+| 4     | 4×4       | 9             | 4                 | 2.5s         |
+| 5     | 4×4       | 11            | 4                 | 2s           |
+| 6     | 5×5       | 13            | 4                 | 2s           |
+| 7+    | 5×5       | 15+           | 5                 | 2s           |
 
 ## Scoring
 

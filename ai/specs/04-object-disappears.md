@@ -42,15 +42,15 @@ As a player, I want to briefly see a group of emoji objects and then identify wh
 
 ## Difficulty progression
 
-| Level | Object count | Preview time |
-|---|---|---|
-| 1 | 5 | 3.0s |
-| 2 | 6 | 2.8s |
-| 3 | 7 | 2.5s |
-| 4 | 8 | 2.2s |
-| 5 | 9 | 2.0s |
-| 6 | 10 | 1.8s |
-| 7+ | min(5 + level, 12) | max(3.0 - level × 0.2, 1.5)s |
+| Level | Object count       | Preview time                 |
+| ----- | ------------------ | ---------------------------- |
+| 1     | 5                  | 3.0s                         |
+| 2     | 6                  | 2.8s                         |
+| 3     | 7                  | 2.5s                         |
+| 4     | 8                  | 2.2s                         |
+| 5     | 9                  | 2.0s                         |
+| 6     | 10                 | 1.8s                         |
+| 7+    | min(5 + level, 12) | max(3.0 - level × 0.2, 1.5)s |
 
 ## Scoring
 

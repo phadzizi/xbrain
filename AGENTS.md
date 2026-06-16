@@ -70,6 +70,7 @@ If any gate fails, fix it. Do not claim it passed unless you ran it.
 Before creating a PR, answer each item honestly:
 
 **Code**
+
 - Does the feature match every acceptance criterion?
 - Is the solution simpler than the first version I thought of?
 - Did I avoid unnecessary dependencies?
@@ -79,6 +80,7 @@ Before creating a PR, answer each item honestly:
 - Did I avoid `any`?
 
 **UI — run the checklist in `ai/UI_DESIGN_STANDARD.md` section 9**
+
 - No hard-coded colors or spacing values (use tokens)?
 - All interactive elements at least 44×44px?
 - No hover-only interactions?
@@ -87,6 +89,7 @@ Before creating a PR, answer each item honestly:
 - Uses shared components (GameLayout, PrimaryButton, GameCard, ScoreDisplay)?
 
 **Mobile & web — run the checklist in `ai/MOBILE_WEB_TESTING.md` section 9**
+
 - No horizontal scroll at 320px?
 - Content centered and not stretched at 1280px?
 - Playwright E2E passes at all 4 viewports?

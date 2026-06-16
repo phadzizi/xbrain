@@ -8,12 +8,12 @@ Every feature must be mechanically verified at multiple viewports before PR. "It
 
 Every Playwright E2E test must run at all four viewports:
 
-| Name | Width | Height | Represents |
-|---|---|---|---|
-| `mobile-sm` | 320px | 568px | Small Android / iPhone SE |
-| `mobile-lg` | 390px | 844px | iPhone 14 |
-| `tablet` | 768px | 1024px | iPad portrait |
-| `desktop` | 1280px | 800px | Laptop |
+| Name        | Width  | Height | Represents                |
+| ----------- | ------ | ------ | ------------------------- |
+| `mobile-sm` | 320px  | 568px  | Small Android / iPhone SE |
+| `mobile-lg` | 390px  | 844px  | iPhone 14                 |
+| `tablet`    | 768px  | 1024px | iPad portrait             |
+| `desktop`   | 1280px | 800px  | Laptop                    |
 
 Configure this in `playwright.config.ts` — see section 3.
 
@@ -71,15 +71,15 @@ export default defineConfig({
   projects: [
     {
       name: 'mobile-sm',
-      use: { ...devices['Galaxy S5'] },   // 360×640
+      use: { ...devices['Galaxy S5'] }, // 360×640
     },
     {
       name: 'mobile-lg',
-      use: { ...devices['iPhone 14'] },   // 390×844
+      use: { ...devices['iPhone 14'] }, // 390×844
     },
     {
       name: 'tablet',
-      use: { ...devices['iPad'] },        // 768×1024
+      use: { ...devices['iPad'] }, // 768×1024
     },
     {
       name: 'desktop',
@@ -152,13 +152,13 @@ Use `data-testid` attributes on key elements — never CSS selectors or text con
 
 Map of required `data-testid` values for every game:
 
-| Element | `data-testid` |
-|---|---|
-| Score display | `score-display` |
-| Best score display | `best-score-display` |
-| Start / Replay button | `start-button` |
-| Game over screen | `game-over-screen` |
-| Round indicator | `round-indicator` (if shown) |
+| Element               | `data-testid`                |
+| --------------------- | ---------------------------- |
+| Score display         | `score-display`              |
+| Best score display    | `best-score-display`         |
+| Start / Replay button | `start-button`               |
+| Game over screen      | `game-over-screen`           |
+| Round indicator       | `round-indicator` (if shown) |
 
 ---
 

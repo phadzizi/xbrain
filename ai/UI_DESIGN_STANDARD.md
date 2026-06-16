@@ -13,30 +13,30 @@ All visual values live in `src/styles/tokens.css`. Never hard-code a color, spac
 ```css
 :root {
   /* Brand */
-  --color-primary:        #6366F1;   /* indigo-500 */
-  --color-primary-light:  #A5B4FC;   /* indigo-300 */
-  --color-primary-dark:   #4338CA;   /* indigo-700 */
+  --color-primary: #6366f1; /* indigo-500 */
+  --color-primary-light: #a5b4fc; /* indigo-300 */
+  --color-primary-dark: #4338ca; /* indigo-700 */
 
   /* Feedback */
-  --color-success:        #22C55E;   /* green-500 */
-  --color-error:          #EF4444;   /* red-500 */
-  --color-warning:        #EAB308;   /* yellow-500 */
+  --color-success: #22c55e; /* green-500 */
+  --color-error: #ef4444; /* red-500 */
+  --color-warning: #eab308; /* yellow-500 */
 
   /* Game colors (Simon Says, Pattern Copy) */
-  --color-game-red:       #EF4444;
-  --color-game-blue:      #3B82F6;
-  --color-game-green:     #22C55E;
-  --color-game-yellow:    #EAB308;
-  --color-game-purple:    #A855F7;
+  --color-game-red: #ef4444;
+  --color-game-blue: #3b82f6;
+  --color-game-green: #22c55e;
+  --color-game-yellow: #eab308;
+  --color-game-purple: #a855f7;
 
   /* Neutral */
-  --color-bg:             #0F172A;   /* slate-900 — app background */
-  --color-surface:        #1E293B;   /* slate-800 — card/panel background */
-  --color-surface-raised: #334155;   /* slate-700 — elevated surface */
-  --color-border:         #475569;   /* slate-600 */
-  --color-text:           #F1F5F9;   /* slate-100 */
-  --color-text-muted:     #94A3B8;   /* slate-400 */
-  --color-text-disabled:  #475569;   /* slate-600 */
+  --color-bg: #0f172a; /* slate-900 — app background */
+  --color-surface: #1e293b; /* slate-800 — card/panel background */
+  --color-surface-raised: #334155; /* slate-700 — elevated surface */
+  --color-border: #475569; /* slate-600 */
+  --color-text: #f1f5f9; /* slate-100 */
+  --color-text-muted: #94a3b8; /* slate-400 */
+  --color-text-disabled: #475569; /* slate-600 */
 }
 ```
 
@@ -44,13 +44,13 @@ All visual values live in `src/styles/tokens.css`. Never hard-code a color, spac
 
 ```css
 :root {
-  --space-1:  4px;
-  --space-2:  8px;
-  --space-3:  12px;
-  --space-4:  16px;
-  --space-5:  20px;
-  --space-6:  24px;
-  --space-8:  32px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
   --space-10: 40px;
   --space-12: 48px;
   --space-16: 64px;
@@ -63,22 +63,22 @@ All visual values live in `src/styles/tokens.css`. Never hard-code a color, spac
 :root {
   --font-family: 'Inter', system-ui, -apple-system, sans-serif;
 
-  --text-xs:   12px;
-  --text-sm:   14px;
+  --text-xs: 12px;
+  --text-sm: 14px;
   --text-base: 16px;
-  --text-lg:   18px;
-  --text-xl:   20px;
-  --text-2xl:  24px;
-  --text-3xl:  30px;
-  --text-4xl:  36px;
-  --text-5xl:  48px;
+  --text-lg: 18px;
+  --text-xl: 20px;
+  --text-2xl: 24px;
+  --text-3xl: 30px;
+  --text-4xl: 36px;
+  --text-5xl: 48px;
 
-  --font-normal:   400;
-  --font-medium:   500;
+  --font-normal: 400;
+  --font-medium: 500;
   --font-semibold: 600;
-  --font-bold:     700;
+  --font-bold: 700;
 
-  --leading-tight:  1.25;
+  --leading-tight: 1.25;
   --leading-normal: 1.5;
 }
 ```
@@ -87,10 +87,10 @@ All visual values live in `src/styles/tokens.css`. Never hard-code a color, spac
 
 ```css
 :root {
-  --radius-sm:   6px;
-  --radius-md:   12px;
-  --radius-lg:   16px;
-  --radius-xl:   24px;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
   --radius-full: 9999px;
 }
 ```
@@ -99,9 +99,9 @@ All visual values live in `src/styles/tokens.css`. Never hard-code a color, spac
 
 ```css
 :root {
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
-  --shadow-md: 0 4px 12px rgba(0,0,0,0.5);
-  --shadow-lg: 0 8px 24px rgba(0,0,0,0.6);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.6);
 }
 ```
 
@@ -109,14 +109,14 @@ All visual values live in `src/styles/tokens.css`. Never hard-code a color, spac
 
 ```css
 :root {
-  --duration-fast:   150ms;
+  --duration-fast: 150ms;
   --duration-normal: 250ms;
-  --duration-slow:   400ms;
+  --duration-slow: 400ms;
   --duration-slower: 600ms;
 
-  --ease-out:    cubic-bezier(0.0, 0.0, 0.2, 1);
-  --ease-in-out: cubic-bezier(0.4, 0.0, 0.2, 1);
-  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);  /* slight overshoot */
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1); /* slight overshoot */
 }
 ```
 
@@ -144,7 +144,7 @@ If the visual element is smaller (e.g. a small icon button), use padding to grow
 
 ```css
 .icon-button {
-  padding: var(--space-3);  /* 12px padding → 44px+ total tap area */
+  padding: var(--space-3); /* 12px padding → 44px+ total tap area */
 }
 ```
 
@@ -210,6 +210,7 @@ Display:   flex, column, justify: space-between
 ## 5. Animation rules
 
 **What to animate:**
+
 - Card flips (CSS 3D transform)
 - Button press feedback (scale down 0.96, fast)
 - Correct answer feedback (scale up 1.06, spring ease)
@@ -218,6 +219,7 @@ Display:   flex, column, justify: space-between
 - Screen transitions (fade, 250ms)
 
 **What NOT to animate:**
+
 - Layout reflows
 - Text content changes (unless it's a score counter)
 - Loading states under 300ms (just show content)
@@ -227,7 +229,9 @@ Display:   flex, column, justify: space-between
 
 ```css
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
@@ -238,16 +242,16 @@ Display:   flex, column, justify: space-between
 
 ## 6. Accessibility rules (WCAG 2.1 AA)
 
-| Rule | Requirement |
-|---|---|
-| Color contrast | Text on bg: minimum 4.5:1 ratio |
-| Focus visible | All interactive elements must show a visible focus ring |
+| Rule             | Requirement                                                          |
+| ---------------- | -------------------------------------------------------------------- |
+| Color contrast   | Text on bg: minimum 4.5:1 ratio                                      |
+| Focus visible    | All interactive elements must show a visible focus ring              |
 | Focus ring style | `outline: 2px solid var(--color-primary-light); outline-offset: 2px` |
-| Button semantics | Use `<button>` not `<div onClick>` |
-| Icon buttons | Must have `aria-label` |
-| Game state | Screen reader must be told when state changes (`aria-live="polite"`) |
-| Color only | Never use color as the only indicator (add icon, shape, or text) |
-| Disabled inputs | Use `disabled` attribute, not just `pointer-events: none` |
+| Button semantics | Use `<button>` not `<div onClick>`                                   |
+| Icon buttons     | Must have `aria-label`                                               |
+| Game state       | Screen reader must be told when state changes (`aria-live="polite"`) |
+| Color only       | Never use color as the only indicator (add icon, shape, or text)     |
+| Disabled inputs  | Use `disabled` attribute, not just `pointer-events: none`            |
 
 ---
 

@@ -42,11 +42,11 @@ As a player, I want to watch a sequence of colored buttons light up and then rep
 ## Difficulty progression
 
 | Level (rounds) | Sequence length | Playback interval |
-|---|---|---|
-| 1–5 | 3–7 | 800ms per color |
-| 6–10 | 8–12 | 650ms per color |
-| 11–15 | 13–17 | 500ms per color |
-| 16+ | 18+ | 400ms per color |
+| -------------- | --------------- | ----------------- |
+| 1–5            | 3–7             | 800ms per color   |
+| 6–10           | 8–12            | 650ms per color   |
+| 11–15          | 13–17           | 500ms per color   |
+| 16+            | 18+             | 400ms per color   |
 
 ## Scoring
 
