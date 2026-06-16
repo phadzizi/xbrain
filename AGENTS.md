@@ -31,10 +31,12 @@ For every new feature, create or update as needed:
 
 ## Standards
 
-- Good code: `/ai/GOOD_CODE_STANDARD.md`
-- Task breakdown: `/ai/TASK_BREAKDOWN_PROTOCOL.md`
-- Game architecture: `/ai/GAME_FEATURE_STANDARD.md`
-- Definition of done: `/ai/DEFINITION_OF_DONE.md`
+- Good code: `ai/GOOD_CODE_STANDARD.md`
+- Task breakdown: `ai/TASK_BREAKDOWN_PROTOCOL.md`
+- Game architecture: `ai/GAME_FEATURE_STANDARD.md`
+- Definition of done: `ai/DEFINITION_OF_DONE.md`
+- UI design: `ai/UI_DESIGN_STANDARD.md` ← read this before writing any CSS or JSX
+- Mobile & web testing: `ai/MOBILE_WEB_TESTING.md` ← read this before writing any Playwright test
 
 ## Project architecture
 
@@ -57,17 +59,8 @@ src/
 ## Quality gates — run before every PR
 
 ```bash
-npm run format:check
-npm run lint
-npm run typecheck
-npm run test
-npm run build
-```
-
-Or use the single alias:
-
-```bash
-npm run check
+npm run check          # format + lint + typecheck + unit tests + build
+npm run test:e2e       # Playwright at all 4 viewports (mobile-sm, mobile-lg, tablet, desktop)
 ```
 
 If any gate fails, fix it. Do not claim it passed unless you ran it.
@@ -76,16 +69,28 @@ If any gate fails, fix it. Do not claim it passed unless you ran it.
 
 Before creating a PR, answer each item honestly:
 
+**Code**
 - Does the feature match every acceptance criterion?
 - Is the solution simpler than the first version I thought of?
 - Did I avoid unnecessary dependencies?
 - Is logic separated from UI?
 - Are important edge cases tested?
-- Does it work on mobile and web?
 - Are timers, intervals, and subscriptions cleaned up?
 - Did I avoid `any`?
-- Did I update docs if needed?
-- Would I be comfortable reviewing this PR as a human?
+
+**UI — run the checklist in `ai/UI_DESIGN_STANDARD.md` section 9**
+- No hard-coded colors or spacing values (use tokens)?
+- All interactive elements at least 44×44px?
+- No hover-only interactions?
+- Focus ring visible?
+- `prefers-reduced-motion` respected?
+- Uses shared components (GameLayout, PrimaryButton, GameCard, ScoreDisplay)?
+
+**Mobile & web — run the checklist in `ai/MOBILE_WEB_TESTING.md` section 9**
+- No horizontal scroll at 320px?
+- Content centered and not stretched at 1280px?
+- Playwright E2E passes at all 4 viewports?
+- `data-testid` attributes on all key elements?
 
 If any answer is no, fix it first.
 

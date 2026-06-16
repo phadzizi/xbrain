@@ -15,8 +15,10 @@ Your task is to implement the feature request below and produce a PR-ready branc
 2. Read `ai/GOOD_CODE_STANDARD.md`
 3. Read `ai/TASK_BREAKDOWN_PROTOCOL.md`
 4. Read `ai/GAME_FEATURE_STANDARD.md`
-5. Read `ai/DEFINITION_OF_DONE.md`
-6. Inspect the existing codebase — look at src/games/, src/components/, src/services/, src/store/
+5. Read `ai/UI_DESIGN_STANDARD.md`
+6. Read `ai/MOBILE_WEB_TESTING.md`
+7. Read `ai/DEFINITION_OF_DONE.md`
+8. Inspect the existing codebase — look at src/games/, src/components/, src/styles/, src/services/, src/store/
 
 ## Your workflow
 
@@ -26,19 +28,26 @@ Your task is to implement the feature request below and produce a PR-ready branc
 4. Implement one task at a time, marking each complete
 5. Add tests as part of implementation, not after
 6. Run: npm run check
-7. Fix all failures
-8. Run self-review using ai/SELF_REVIEW_PROMPT.md — output the review
-9. Make at least one improvement after self-review
-10. Create the PR
+7. Run: npm run test:e2e (must pass at all 4 viewports)
+8. Fix all failures
+9. Run the UI checklist from `ai/UI_DESIGN_STANDARD.md` section 9 — output results
+10. Run the mobile checklist from `ai/MOBILE_WEB_TESTING.md` section 9 — output results
+11. Run self-review using `ai/SELF_REVIEW_PROMPT.md` — output the review
+12. Make at least one improvement after self-review
+13. Create the PR
 
 ## Rules
 
 - Do not add dependencies without justification
 - Do not skip tests
+- Do not skip the UI checklist or mobile checklist
 - Do not claim commands passed unless you ran them and they passed
 - Keep solutions simple — the smallest working solution is better than the most elegant
 - Prefer pure functions for game logic
-- All UI must work on mobile (320px+) and desktop
+- Use design tokens — never hard-code colors, spacing, or font sizes
+- Use shared components — never duplicate GameLayout, PrimaryButton, GameCard, etc.
+- All interactive elements must be min 44×44px
+- All UI must work at 320px and 1280px
 - Clean up all timers and subscriptions
 - Avoid `any`
 - If something cannot be completed in this PR, state it clearly under Known Limitations

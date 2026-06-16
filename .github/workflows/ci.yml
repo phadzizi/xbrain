@@ -40,3 +40,9 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: E2E tests (mobile-sm, mobile-lg, tablet, desktop)
+        run: npm run test:e2e

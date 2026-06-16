@@ -22,15 +22,39 @@ A feature is done only when every item below is checked. If any item is unchecke
 - [ ] No dead code
 - [ ] Timers, intervals, and subscriptions are cleaned up on unmount
 
-## Checks
+## UI design
+
+- [ ] Follows `ai/UI_DESIGN_STANDARD.md` — no hard-coded colors, spacing, or font sizes
+- [ ] Uses design tokens from `src/styles/tokens.css`
+- [ ] Uses shared components: `GameLayout`, `PrimaryButton`, `GameCard`, `ScoreDisplay`, `FeedbackBadge`
+- [ ] All interactive elements are minimum 44×44px tap target
+- [ ] No hover-only interactions
+- [ ] Focus ring visible on all focusable elements
+- [ ] `prefers-reduced-motion` respected for all animations
+- [ ] Color is not the sole indicator of game state (icon, shape, or text also used)
+- [ ] Completed `ai/UI_DESIGN_STANDARD.md` section 9 checklist
+
+## Mobile & web
+
+- [ ] No horizontal scroll at 320px viewport width
+- [ ] Content centered and not stretched at 1280px viewport width
+- [ ] `data-testid` attributes on: score display, start/replay button, game-over screen, key game elements
+- [ ] Playwright E2E happy-path passes at `mobile-sm` (360px)
+- [ ] Playwright E2E happy-path passes at `mobile-lg` (390px)
+- [ ] Playwright E2E happy-path passes at `tablet` (768px)
+- [ ] Playwright E2E happy-path passes at `desktop` (1280px)
+- [ ] Completed `ai/MOBILE_WEB_TESTING.md` section 9 manual checklist
+
+## Code checks
 
 - [ ] `npm run format:check` passes
 - [ ] `npm run lint` passes (zero warnings)
 - [ ] `npm run typecheck` passes
 - [ ] `npm run test` passes
+- [ ] `npm run test:e2e` passes
 - [ ] `npm run build` succeeds
 
-## Tests
+## Unit & component tests
 
 - [ ] Unit tests cover pure logic
 - [ ] Edge cases are tested (empty input, max level, invalid answer)
