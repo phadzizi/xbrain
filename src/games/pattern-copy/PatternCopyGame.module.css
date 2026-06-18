@@ -1,0 +1,230 @@
+.idleScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+  padding: var(--space-8) var(--space-4);
+  text-align: center;
+}
+
+.idleEmoji {
+  font-family: var(--font-emoji);
+  font-size: var(--text-5xl);
+  line-height: 1;
+}
+
+.idleTitle {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  color: var(--color-text);
+  margin: 0;
+}
+
+.idleDesc {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  max-width: 280px;
+  line-height: var(--leading-normal);
+  margin: 0;
+}
+
+.completeScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+  padding: var(--space-8) var(--space-4);
+  text-align: center;
+}
+
+.completeTitle {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  color: var(--color-text);
+  margin: 0;
+}
+
+.hud {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-8);
+  padding: var(--space-4) 0;
+}
+
+.hudStat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.hudLabel {
+  font-size: var(--text-xs);
+  font-weight: var(--font-medium);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.hudValue {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  color: var(--color-text);
+}
+
+.countdownScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  flex: 1;
+  padding: var(--space-8) 0;
+}
+
+.countdownReady {
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.countdownNumber {
+  display: block;
+  font-size: var(--text-display);
+  font-weight: var(--font-bold);
+  color: var(--color-primary-light);
+  animation: pop var(--duration-normal) var(--ease-spring);
+}
+
+@keyframes pop {
+  from {
+    transform: scale(0.8);
+    opacity: 0.4;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.gameArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+  padding: var(--space-2) 0 var(--space-6);
+}
+
+.grid {
+  display: grid;
+  gap: var(--space-1);
+  /* Max width fits 5×5 at minimum cell size without overflow */
+  width: min(100%, calc(5 * var(--size-emoji-md) + 4 * var(--space-1)));
+  border-radius: var(--radius-md);
+  transition: box-shadow var(--duration-normal) var(--ease-out);
+}
+
+.gridCorrect {
+  box-shadow:
+    0 0 0 3px var(--color-success),
+    var(--shadow-md);
+}
+
+.gridWrong {
+  box-shadow:
+    0 0 0 3px var(--color-error),
+    var(--shadow-md);
+}
+
+.cell {
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  transition:
+    transform var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out);
+  min-width: 0;
+}
+
+.cell:focus-visible {
+  outline: 2px solid var(--color-primary-light);
+  outline-offset: 2px;
+}
+
+.cell:not(:disabled):hover {
+  transform: scale(1.06);
+}
+
+.cell:not(:disabled):active {
+  transform: scale(0.94);
+}
+
+.cell:disabled {
+  cursor: default;
+}
+
+.cellEmpty {
+  background-color: var(--color-surface-raised);
+  border: 2px solid var(--color-border);
+}
+
+.palette {
+  display: flex;
+  gap: var(--space-4);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.swatch {
+  width: var(--size-emoji-md);
+  height: var(--size-emoji-md);
+  border-radius: var(--radius-md);
+  border: 3px solid transparent;
+  cursor: pointer;
+  transition:
+    transform var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.swatch:focus-visible {
+  outline: 2px solid var(--color-primary-light);
+  outline-offset: 2px;
+}
+
+.swatch:not(.swatchSelected):hover {
+  transform: scale(1.1);
+}
+
+.swatch:active {
+  transform: scale(0.94);
+}
+
+.swatchSelected {
+  border-color: var(--color-text);
+  box-shadow: 0 0 0 2px var(--color-text);
+  transform: scale(1.12);
+}
+
+.submitRow {
+  display: flex;
+  justify-content: center;
+}
+
+.wrongLabel {
+  font-size: var(--text-sm);
+  color: var(--color-error);
+  font-weight: var(--font-medium);
+  text-align: center;
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

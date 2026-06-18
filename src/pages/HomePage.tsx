@@ -59,7 +59,7 @@ const GAMES: Game[] = [
     emoji: '🎨',
     description: 'Recreate the color pattern from memory.',
     path: '/games/pattern-copy',
-    ready: false,
+    ready: true,
   },
   {
     id: 'position-grid',

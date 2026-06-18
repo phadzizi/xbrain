@@ -5,6 +5,7 @@ import SimonGame from './games/simon-says';
 import NumberSequenceGame from './games/number-sequence';
 import ObjectDisappearsGame from './games/object-disappears';
 import WordRecallGame from './games/word-recall';
+import PatternCopyGame from './games/pattern-copy';
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
         <Route path="/games/number-sequence" element={<NumberSequenceGame />} />
         <Route path="/games/object-disappears" element={<ObjectDisappearsGame />} />
         <Route path="/games/word-recall" element={<WordRecallGame />} />
+        <Route path="/games/pattern-copy" element={<PatternCopyGame />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
