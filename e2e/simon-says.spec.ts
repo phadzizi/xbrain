@@ -2,8 +2,9 @@ import { test, expect } from '@playwright/test';
 import { assertNoHorizontalScroll } from './helpers/viewport';
 
 // The preview for round 1 takes: 800ms start delay + 3*800ms + 200ms ≈ 3.2s.
-// We give the test 10s to wait for input mode before timing out.
-const INPUT_TIMEOUT = 10_000;
+// We give the test 20s to wait for input mode — the generous budget handles
+// CPU-saturated parallel runs where browser timers may be delayed.
+const INPUT_TIMEOUT = 20_000;
 
 test.describe('Simon Says — happy path', () => {
   test.beforeEach(async ({ page }) => {
@@ -30,9 +31,11 @@ test.describe('Simon Says — happy path', () => {
   test('transitions to input mode after preview', async ({ page }) => {
     await page.getByTestId('start-button').click();
 
-    await page.waitForSelector('[data-testid="game-info"][data-status="input"]', {
-      timeout: INPUT_TIMEOUT,
-    });
+    await expect(page.locator('[data-testid="game-info"]')).toHaveAttribute(
+      'data-status',
+      'input',
+      { timeout: INPUT_TIMEOUT }
+    );
 
     // Buttons should now be enabled
     const firstButton = page.locator('[data-testid="color-button"]').first();
@@ -46,9 +49,11 @@ test.describe('Simon Says — happy path', () => {
     await page.getByTestId('start-button').click();
 
     // Wait for input mode and read the expected sequence from the DOM
-    await page.waitForSelector('[data-testid="game-info"][data-status="input"]', {
-      timeout: INPUT_TIMEOUT,
-    });
+    await expect(page.locator('[data-testid="game-info"]')).toHaveAttribute(
+      'data-status',
+      'input',
+      { timeout: INPUT_TIMEOUT }
+    );
 
     const seqAttr = await page.getAttribute('[data-testid="game-info"]', 'data-sequence');
     const seq = seqAttr!.split(',');
@@ -68,9 +73,11 @@ test.describe('Simon Says — happy path', () => {
     await page.getByTestId('start-button').click();
 
     // ── Round 1: click all colors correctly ─────────────────────
-    await page.waitForSelector('[data-testid="game-info"][data-status="input"]', {
-      timeout: INPUT_TIMEOUT,
-    });
+    await expect(page.locator('[data-testid="game-info"]')).toHaveAttribute(
+      'data-status',
+      'input',
+      { timeout: INPUT_TIMEOUT }
+    );
 
     const seq1Attr = await page.getAttribute('[data-testid="game-info"]', 'data-sequence');
     const seq1 = seq1Attr!.split(',');
@@ -85,9 +92,11 @@ test.describe('Simon Says — happy path', () => {
     await expect(page.getByTestId('round-indicator')).toContainText('2', { timeout: 3000 });
 
     // ── Round 2: wait for input, then deliberately tap wrong ─────
-    await page.waitForSelector('[data-testid="game-info"][data-status="input"]', {
-      timeout: INPUT_TIMEOUT,
-    });
+    await expect(page.locator('[data-testid="game-info"]')).toHaveAttribute(
+      'data-status',
+      'input',
+      { timeout: INPUT_TIMEOUT }
+    );
 
     const seq2Attr = await page.getAttribute('[data-testid="game-info"]', 'data-sequence');
     const seq2 = seq2Attr!.split(',');
@@ -105,9 +114,11 @@ test.describe('Simon Says — happy path', () => {
   test('replay resets the game to idle → playing', async ({ page }) => {
     await page.getByTestId('start-button').click();
 
-    await page.waitForSelector('[data-testid="game-info"][data-status="input"]', {
-      timeout: INPUT_TIMEOUT,
-    });
+    await expect(page.locator('[data-testid="game-info"]')).toHaveAttribute(
+      'data-status',
+      'input',
+      { timeout: INPUT_TIMEOUT }
+    );
 
     const seqAttr = await page.getAttribute('[data-testid="game-info"]', 'data-sequence');
     const seq = seqAttr!.split(',');
