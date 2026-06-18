@@ -27,7 +27,7 @@ const GAMES: Game[] = [
     emoji: '🔴',
     description: 'Repeat the color sequence without making a mistake.',
     path: '/games/simon-says',
-    ready: false,
+    ready: true,
   },
   {
     id: 'number-sequence',

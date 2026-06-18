@@ -1,6 +1,15 @@
 import { Howl } from 'howler';
 
-export type SoundType = 'correct' | 'wrong' | 'flip' | 'complete' | 'tick';
+export type SoundType =
+  | 'correct'
+  | 'wrong'
+  | 'flip'
+  | 'complete'
+  | 'tick'
+  | 'red'
+  | 'blue'
+  | 'green'
+  | 'yellow';
 
 const SOUNDS: Partial<Record<SoundType, Howl>> = {};
 
@@ -10,6 +19,10 @@ const SOUND_SRCS: Record<SoundType, string[]> = {
   flip: ['/sounds/flip.mp3'],
   complete: ['/sounds/complete.mp3'],
   tick: ['/sounds/tick.mp3'],
+  red: ['/sounds/simon-red.mp3'],
+  blue: ['/sounds/simon-blue.mp3'],
+  green: ['/sounds/simon-green.mp3'],
+  yellow: ['/sounds/simon-yellow.mp3'],
 };
 
 let muted = false;
