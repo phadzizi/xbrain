@@ -90,3 +90,7 @@ export function checkPlacements(
 export function isGameOver(roundScore: number, totalObjects: number): boolean {
   return roundScore < Math.ceil(totalObjects / 2);
 }
+
+export function calculateScore(totalCorrect: number): number {
+  return totalCorrect;
+}
