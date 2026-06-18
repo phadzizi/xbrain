@@ -51,7 +51,7 @@ const GAMES: Game[] = [
     emoji: '📝',
     description: 'Remember as many words as you can.',
     path: '/games/word-recall',
-    ready: false,
+    ready: true,
   },
   {
     id: 'pattern-copy',
