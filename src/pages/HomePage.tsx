@@ -35,7 +35,7 @@ const GAMES: Game[] = [
     emoji: '🔢',
     description: 'Memorize and type back a sequence of numbers.',
     path: '/games/number-sequence',
-    ready: false,
+    ready: true,
   },
   {
     id: 'object-disappears',
