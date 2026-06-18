@@ -1,0 +1,295 @@
+/* ── Idle ─────────────────────────────────────────────────────────── */
+.idleScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-8) var(--space-4);
+  text-align: center;
+}
+
+.idleEmoji {
+  font-size: 64px;
+  line-height: 1;
+  font-family: var(--font-emoji);
+}
+
+.idleTitle {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  color: var(--color-text);
+  margin: 0;
+}
+
+.idleDesc {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  max-width: 320px;
+  margin: 0;
+  line-height: var(--leading-normal);
+}
+
+/* ── Complete ─────────────────────────────────────────────────────── */
+.completeScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+  padding: var(--space-8) var(--space-4);
+  text-align: center;
+}
+
+.completeTitle {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+  color: var(--color-text);
+  margin: 0;
+}
+
+/* ── HUD ──────────────────────────────────────────────────────────── */
+.hud {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-8);
+  padding: var(--space-4) var(--space-4) var(--space-2);
+}
+
+.hudStat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.hudLabel {
+  font-size: var(--text-xs);
+  font-weight: var(--font-semibold);
+  color: var(--color-text-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hudValue {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  color: var(--color-text);
+}
+
+/* ── Countdown ────────────────────────────────────────────────────── */
+.countdownScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  padding: var(--space-16) var(--space-4);
+}
+
+.countdownReady {
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.countdownNumber {
+  font-size: var(--text-display);
+  font-weight: var(--font-bold);
+  color: var(--color-primary-light);
+  line-height: 1;
+  animation: popIn var(--duration-slow) var(--ease-spring) forwards;
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ── Game area ────────────────────────────────────────────────────── */
+.gameArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-2) var(--space-4) var(--space-6);
+  width: 100%;
+}
+
+/* ── Grid ─────────────────────────────────────────────────────────── */
+.grid {
+  display: grid;
+  gap: var(--space-1);
+  width: min(100%, calc(5 * var(--size-emoji-md) + 4 * var(--space-1)));
+}
+
+.cell {
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-sm);
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  min-width: 0;
+  transition:
+    background-color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.cell:focus-visible {
+  outline: 2px solid var(--color-primary-light);
+  outline-offset: 2px;
+}
+
+.cell:disabled {
+  cursor: default;
+}
+
+.cellEmpty {
+  background-color: var(--color-surface-raised);
+  border-color: var(--color-border);
+}
+
+.cellPreview {
+  background-color: var(--color-surface);
+  border-color: var(--color-primary);
+}
+
+.cellFilled {
+  background-color: var(--color-surface);
+  border-color: var(--color-primary-light);
+}
+
+.cellCorrect {
+  background-color: rgba(34, 197, 94, 0.15);
+  border-color: var(--color-success);
+}
+
+.cellWrong {
+  background-color: rgba(239, 68, 68, 0.15);
+  border-color: var(--color-error);
+}
+
+.cellMissed {
+  background-color: rgba(148, 163, 184, 0.1);
+  border-color: var(--color-text-muted);
+  opacity: 0.6;
+}
+
+.cellEmoji {
+  font-size: var(--text-emoji-md);
+  line-height: 1;
+  font-family: var(--font-emoji);
+  user-select: none;
+}
+
+@keyframes glowPulse {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 4px rgba(99, 102, 241, 0.8));
+  }
+  50% {
+    filter: drop-shadow(0 0 10px rgba(165, 180, 252, 0.9));
+  }
+}
+
+.cellEmojiGlow {
+  animation: glowPulse 1.4s var(--ease-in-out) infinite;
+}
+
+/* ── Results summary ──────────────────────────────────────────────── */
+.resultsSummary {
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+  color: var(--color-text);
+  margin: 0;
+}
+
+/* ── Sidebar ──────────────────────────────────────────────────────── */
+.sidebar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2);
+  width: 100%;
+  max-width: calc(5 * var(--size-emoji-md) + 4 * var(--space-2));
+}
+
+.sidebarObj {
+  width: var(--size-emoji-sm);
+  height: var(--size-emoji-sm);
+  border-radius: var(--radius-md);
+  border: 2px solid var(--color-border);
+  background-color: var(--color-surface-raised);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition:
+    border-color var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out),
+    opacity var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-spring);
+}
+
+.sidebarObj:focus-visible {
+  outline: 2px solid var(--color-primary-light);
+  outline-offset: 2px;
+}
+
+.sidebarObjSelected {
+  border-color: var(--color-primary-light);
+  box-shadow: 0 0 0 2px var(--color-primary-light);
+  transform: scale(1.12);
+}
+
+.sidebarObjPlaced {
+  opacity: 0.4;
+}
+
+.sidebarEmoji {
+  font-size: var(--text-emoji-sm);
+  line-height: 1;
+  font-family: var(--font-emoji);
+  user-select: none;
+}
+
+/* ── Actions row ──────────────────────────────────────────────────── */
+.actionsRow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  max-width: 320px;
+}
+
+.quitButton {
+  font-size: var(--text-base);
+  font-weight: var(--font-medium);
+  color: var(--color-text-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  min-height: 44px;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.quitButton:hover {
+  color: var(--color-text);
+}
+
+.quitButton:focus-visible {
+  outline: 2px solid var(--color-primary-light);
+  outline-offset: 2px;
+}

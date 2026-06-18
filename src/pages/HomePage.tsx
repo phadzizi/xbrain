@@ -67,7 +67,7 @@ const GAMES: Game[] = [
     emoji: '🗺️',
     description: 'Remember where each object was placed.',
     path: '/games/position-grid',
-    ready: false,
+    ready: true,
   },
 ];
 

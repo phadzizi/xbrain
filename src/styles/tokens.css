@@ -53,7 +53,9 @@
   --text-display: 96px;
 
   /* Emoji cells */
+  --size-emoji-sm: 44px;
   --size-emoji-md: 56px;
+  --text-emoji-sm: 26px;
   --text-emoji-md: 34px;
 
   --font-normal: 400;
