@@ -52,6 +52,10 @@
   --text-5xl: 48px;
   --text-display: 96px;
 
+  /* Emoji cells */
+  --size-emoji-md: 56px;
+  --text-emoji-md: 34px;
+
   --font-normal: 400;
   --font-medium: 500;
   --font-semibold: 600;

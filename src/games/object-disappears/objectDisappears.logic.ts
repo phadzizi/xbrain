@@ -54,13 +54,22 @@ export function getPreviewDuration(level: number): number {
   return Math.max(3000 - level * 200, 1500);
 }
 
+function fisherYates<T>(arr: T[], rng: () => number): T[] {
+  const result = [...arr];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(rng() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
+}
+
 export function generateRound(level: number, rng = Math.random): ObjectDisappearsRound {
   const count = getObjectCount(level);
-  const shuffled = [...OBJECT_POOL].sort(() => rng() - 0.5).slice(0, count);
+  const shuffled = fisherYates(OBJECT_POOL, rng).slice(0, count);
   const missingIndex = Math.floor(rng() * shuffled.length);
   const missingItem = shuffled[missingIndex];
   const visibleItems = shuffled.filter((_, i) => i !== missingIndex);
-  const options = [...shuffled].sort(() => rng() - 0.5);
+  const options = fisherYates(shuffled, rng);
   return {
     allItems: shuffled,
     visibleItems,
