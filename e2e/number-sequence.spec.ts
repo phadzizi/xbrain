@@ -65,16 +65,8 @@ test.describe('Number Sequence — happy path', () => {
       { timeout: INPUT_TIMEOUT }
     );
 
-    const seqAttr = await page.getAttribute('[data-testid="game-info"]', 'data-sequence');
-    const digits = seqAttr!.split(',');
-
-    // Build a definitely-wrong answer by reversing (or using all 1s if sequence has length 1)
-    const wrongAnswer = digits.length > 1 ? digits.slice().reverse().join('') : '999';
-    // Make sure it's actually wrong
-    const correctAnswer = digits.join('');
-    const finalWrong = wrongAnswer === correctAnswer ? '11111111' : wrongAnswer;
-
-    await page.getByTestId('sequence-input').fill(finalWrong);
+    // '0' is always wrong — digits are 1–9 so the correct answer never contains 0
+    await page.getByTestId('sequence-input').fill('0');
     await page.getByTestId('submit-button').click();
 
     await expect(page.getByTestId('feedback-wrong')).toBeVisible({ timeout: 3000 });
@@ -92,12 +84,8 @@ test.describe('Number Sequence — happy path', () => {
       { timeout: INPUT_TIMEOUT }
     );
 
-    const seqAttr = await page.getAttribute('[data-testid="game-info"]', 'data-sequence');
-    const digits = seqAttr!.split(',');
-    const correctAnswer = digits.join('');
-    const wrongAnswer = correctAnswer === '11111111' ? '22222222' : '11111111';
-
-    await page.getByTestId('sequence-input').fill(wrongAnswer);
+    // '0' is always wrong — digits are 1–9 so the correct answer never contains 0
+    await page.getByTestId('sequence-input').fill('0');
     await page.getByTestId('submit-button').click();
 
     await expect(page.getByTestId('game-over-screen')).toBeVisible({ timeout: 5000 });

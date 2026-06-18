@@ -43,7 +43,7 @@ const GAMES: Game[] = [
     emoji: '👀',
     description: 'Spot which object vanished from the group.',
     path: '/games/object-disappears',
-    ready: false,
+    ready: true,
   },
   {
     id: 'word-recall',
