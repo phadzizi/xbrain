@@ -212,7 +212,7 @@
   cursor: pointer;
   white-space: nowrap;
   min-width: 64px;
-  min-height: 44px;
+  min-height: 52px;
   transition: background var(--duration-fast) var(--ease-out);
   -webkit-tap-highlight-color: transparent;
 }
@@ -225,6 +225,11 @@
 
 .addButton:active {
   transform: scale(0.96);
+}
+
+.addButton:focus-visible {
+  outline: 2px solid var(--color-primary-light);
+  outline-offset: 2px;
 }
 
 .chipList {
@@ -261,7 +266,10 @@
 .doneRow {
   display: flex;
   justify-content: center;
-  margin-top: var(--space-2);
+  position: sticky;
+  bottom: 0;
+  padding: var(--space-3) 0 var(--space-4);
+  background-color: var(--color-bg);
 }
 
 /* ── Results screen ───────────────────────────────────────── */
