@@ -45,14 +45,20 @@ test.describe('Card Flip — happy path', () => {
     }
 
     // Click each pair in sequence
-    for (const [, ids] of pairMap) {
+    const pairs = [...pairMap];
+    for (let i = 0; i < pairs.length; i++) {
+      const [, ids] = pairs[i];
       await page.locator(`[data-card-id="${ids[0]}"]`).click();
       await page.locator(`[data-card-id="${ids[1]}"]`).click();
-      // Wait for matched status before clicking the next pair
-      await expect(page.locator(`[data-card-id="${ids[0]}"]`)).toHaveAttribute(
-        'data-card-status',
-        'matched'
-      );
+      // Skip the matched assertion on the last pair — the game completes and
+      // removes the card grid before it can be checked. The game-over assertions
+      // below verify the game finished correctly.
+      if (i < pairs.length - 1) {
+        await expect(page.locator(`[data-card-id="${ids[0]}"]`)).toHaveAttribute(
+          'data-card-status',
+          'matched'
+        );
+      }
     }
 
     await expect(page.getByTestId('game-over-screen')).toBeVisible();
@@ -78,10 +84,19 @@ test.describe('Card Flip — happy path', () => {
       pairMap.set(pairId, group);
     }
 
-    for (const [, ids] of pairMap) {
+    const replayPairs = [...pairMap];
+    for (let i = 0; i < replayPairs.length; i++) {
+      const [, ids] = replayPairs[i];
       await page.locator(`[data-card-id="${ids[0]}"]`).click();
       await page.locator(`[data-card-id="${ids[1]}"]`).click();
-      await page.waitForTimeout(150);
+      // Skip the matched assertion on the last pair — the game completes and
+      // removes the card grid before it can be checked.
+      if (i < replayPairs.length - 1) {
+        await expect(page.locator(`[data-card-id="${ids[0]}"]`)).toHaveAttribute(
+          'data-card-status',
+          'matched'
+        );
+      }
     }
 
     await expect(page.getByTestId('game-over-screen')).toBeVisible();

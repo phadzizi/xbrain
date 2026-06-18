@@ -27,7 +27,7 @@ const GAMES: Game[] = [
     emoji: '🔴',
     description: 'Repeat the color sequence without making a mistake.',
     path: '/games/simon-says',
-    ready: false,
+    ready: true,
   },
   {
     id: 'number-sequence',
@@ -35,7 +35,7 @@ const GAMES: Game[] = [
     emoji: '🔢',
     description: 'Memorize and type back a sequence of numbers.',
     path: '/games/number-sequence',
-    ready: false,
+    ready: true,
   },
   {
     id: 'object-disappears',
@@ -43,7 +43,7 @@ const GAMES: Game[] = [
     emoji: '👀',
     description: 'Spot which object vanished from the group.',
     path: '/games/object-disappears',
-    ready: false,
+    ready: true,
   },
   {
     id: 'word-recall',

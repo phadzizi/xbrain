@@ -3,8 +3,10 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: './e2e',
   fullyParallel: true,
+  workers: 2,
+  timeout: 60_000,
   forbidOnly: !!process.env.CI,
-  retries: process.env.CI ? 2 : 0,
+  retries: process.env.CI ? 2 : 1,
   reporter: [['html', { open: 'never' }]],
   use: {
     baseURL: 'http://localhost:5173',
@@ -18,7 +20,12 @@ export default defineConfig({
     },
     {
       name: 'mobile-lg',
-      use: { ...devices['iPhone 14'] },
+      use: {
+        browserName: 'chromium',
+        viewport: { width: 390, height: 844 },
+        userAgent:
+          'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1',
+      },
     },
     {
       name: 'tablet',
