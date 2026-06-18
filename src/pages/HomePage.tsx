@@ -19,7 +19,7 @@ const GAMES: Game[] = [
     emoji: '🃏',
     description: 'Find matching pairs before time runs out.',
     path: '/games/card-flip',
-    ready: false,
+    ready: true,
   },
   {
     id: 'simon-says',

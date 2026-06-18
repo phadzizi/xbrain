@@ -43,12 +43,12 @@ As a player, I want to flip cards and find matching pairs, so that I can train m
 ## Difficulty progression
 
 | Level | Grid | Pairs | Cards |
-|---|---|---|---|
-| 1 | 3×2 | 3 | 6 |
-| 2 | 4×3 | 6 | 12 |
-| 3 | 4×4 | 8 | 16 |
-| 4 | 5×4 | 10 | 20 |
-| 5 | 6×5 | 15 | 30 |
+| ----- | ---- | ----- | ----- |
+| 1     | 3×2  | 3     | 6     |
+| 2     | 4×3  | 6     | 12    |
+| 3     | 4×4  | 8     | 16    |
+| 4     | 5×4  | 10    | 20    |
+| 5     | 6×5  | 15    | 30    |
 
 ## Scoring
 

@@ -46,16 +46,16 @@ As a player, I want to see emoji objects placed in a grid and then remember wher
 
 ## Difficulty progression
 
-| Level | Grid | Objects | Preview time |
-|---|---|---|---|
-| 1 | 3×3 | 3 | 4s |
-| 2 | 3×3 | 4 | 4s |
-| 3 | 3×3 | 5 | 4s |
-| 4 | 4×4 | 5 | 4s |
-| 5 | 4×4 | 7 | 4s |
-| 6 | 4×4 | 9 | 3.5s |
-| 7 | 5×5 | 10 | 3.5s |
-| 8+ | 5×5 | min(3 + level, 14) | 3s |
+| Level | Grid | Objects            | Preview time |
+| ----- | ---- | ------------------ | ------------ |
+| 1     | 3×3  | 3                  | 4s           |
+| 2     | 3×3  | 4                  | 4s           |
+| 3     | 3×3  | 5                  | 4s           |
+| 4     | 4×4  | 5                  | 4s           |
+| 5     | 4×4  | 7                  | 4s           |
+| 6     | 4×4  | 9                  | 3.5s         |
+| 7     | 5×5  | 10                 | 3.5s         |
+| 8+    | 5×5  | min(3 + level, 14) | 3s           |
 
 ## Scoring
 

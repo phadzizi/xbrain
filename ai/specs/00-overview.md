@@ -39,15 +39,15 @@ base points per level × correct answer × combo multiplier
 
 ## Game list
 
-| # | Game | Memory type | Core mechanic | Start difficulty |
-|---|---|---|---|---|
-| 1 | [Card Flip](01-card-flip.md) | Visual recall | Find matching pairs | 3 pairs (6 cards) |
-| 2 | [Simon Says](02-simon-says.md) | Sequence/pattern | Repeat a color sequence | 3 colors |
-| 3 | [Number Sequence](03-number-sequence.md) | Short-term numeric | Type back a number sequence | 3 digits |
-| 4 | [Object Disappears](04-object-disappears.md) | Visual attention | Spot the missing object | 5 objects |
-| 5 | [Word Recall](05-word-recall.md) | Verbal | Recall as many words as possible | 4 words |
-| 6 | [Pattern Copy](06-pattern-copy.md) | Visual pattern | Rebuild a color pattern | 4 cells |
-| 7 | [Position Grid](07-position-grid.md) | Spatial | Remember item positions in a grid | 3×3 grid, 3 items |
+| #   | Game                                         | Memory type        | Core mechanic                     | Start difficulty  |
+| --- | -------------------------------------------- | ------------------ | --------------------------------- | ----------------- |
+| 1   | [Card Flip](01-card-flip.md)                 | Visual recall      | Find matching pairs               | 3 pairs (6 cards) |
+| 2   | [Simon Says](02-simon-says.md)               | Sequence/pattern   | Repeat a color sequence           | 3 colors          |
+| 3   | [Number Sequence](03-number-sequence.md)     | Short-term numeric | Type back a number sequence       | 3 digits          |
+| 4   | [Object Disappears](04-object-disappears.md) | Visual attention   | Spot the missing object           | 5 objects         |
+| 5   | [Word Recall](05-word-recall.md)             | Verbal             | Recall as many words as possible  | 4 words           |
+| 6   | [Pattern Copy](06-pattern-copy.md)           | Visual pattern     | Rebuild a color pattern           | 4 cells           |
+| 7   | [Position Grid](07-position-grid.md)         | Spatial            | Remember item positions in a grid | 3×3 grid, 3 items |
 
 ---
 

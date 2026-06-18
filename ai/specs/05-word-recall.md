@@ -42,14 +42,14 @@ As a player, I want to read a list of words briefly and then recall as many as I
 
 ## Difficulty progression
 
-| Level | Word count | Preview time |
-|---|---|---|
-| 1 | 4 | 6s |
-| 2 | 5 | 7.5s |
-| 3 | 6 | 9s |
-| 4 | 7 | 10s |
-| 5 | 8 | 10s |
-| 6+ | min(3 + level, 12) | capped at 10s |
+| Level | Word count         | Preview time  |
+| ----- | ------------------ | ------------- |
+| 1     | 4                  | 6s            |
+| 2     | 5                  | 7.5s          |
+| 3     | 6                  | 9s            |
+| 4     | 7                  | 10s           |
+| 5     | 8                  | 10s           |
+| 6+    | min(3 + level, 12) | capped at 10s |
 
 ## Scoring
 

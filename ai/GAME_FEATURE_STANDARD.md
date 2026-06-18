@@ -38,7 +38,7 @@ export type GameState = {
   status: GameStatus;
   level: number;
   score: number;
-  round: Round;        // replace Round with the game-specific round type
+  round: Round; // replace Round with the game-specific round type
 };
 ```
 
@@ -67,7 +67,11 @@ isGameOver(state: GameState): boolean
 Example for Object Disappears:
 
 ```ts
-import type { ObjectItem, ObjectDisappearsRound, ObjectDisappearsState } from './objectDisappears.types';
+import type {
+  ObjectItem,
+  ObjectDisappearsRound,
+  ObjectDisappearsState,
+} from './objectDisappears.types';
 
 const ITEMS: ObjectItem[] = [
   { id: 'apple', label: '🍎' },

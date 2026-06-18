@@ -41,14 +41,14 @@ As a player, I want to see a sequence of numbers briefly and then type it back f
 
 ## Difficulty progression
 
-| Level | Digits | Preview time |
-|---|---|---|
-| 1 | 3 | 3s |
-| 2 | 4 | 4s |
-| 3 | 5 | 5s |
-| 4 | 6 | 5s |
-| 5 | 7 | 5s |
-| 6+ | level + 2 | capped at 5s |
+| Level | Digits    | Preview time |
+| ----- | --------- | ------------ |
+| 1     | 3         | 3s           |
+| 2     | 4         | 4s           |
+| 3     | 5         | 5s           |
+| 4     | 6         | 5s           |
+| 5     | 7         | 5s           |
+| 6+    | level + 2 | capped at 5s |
 
 ## Scoring
 
