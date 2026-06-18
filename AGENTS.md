@@ -63,6 +63,8 @@ npm run check          # format + lint + typecheck + unit tests + build
 npm run test:e2e       # Playwright at all 4 viewports (mobile-sm, mobile-lg, tablet, desktop)
 ```
 
+If `test:e2e` fails with a missing shared library error, run `sudo npx playwright install-deps chromium` once to install OS dependencies, then retry.
+
 If any gate fails, fix it. Do not claim it passed unless you ran it.
 
 ## Self-review checklist
