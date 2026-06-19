@@ -4,15 +4,15 @@ A cross-platform memory games app built with React, TypeScript, Ionic, and Capac
 
 ## Games
 
-| Game                                                  | Memory Skill                 | Status     |
-| ----------------------------------------------------- | ---------------------------- | ---------- |
-| [Card Flip](ai/specs/01-card-flip.md)                 | Visual recall, concentration | 🔲 planned |
-| [Simon Says](ai/specs/02-simon-says.md)               | Pattern & sequence memory    | 🔲 planned |
-| [Number Sequence](ai/specs/03-number-sequence.md)     | Short-term numeric memory    | 🔲 planned |
-| [Object Disappears](ai/specs/04-object-disappears.md) | Visual attention             | 🔲 planned |
-| [Word Recall](ai/specs/05-word-recall.md)             | Verbal memory                | 🔲 planned |
-| [Pattern Copy](ai/specs/06-pattern-copy.md)           | Visual pattern memory        | 🔲 planned |
-| [Position Grid](ai/specs/07-position-grid.md)         | Spatial memory               | 🔲 planned |
+| Game                                                  | Memory Skill                 |
+| ----------------------------------------------------- | ---------------------------- |
+| [Card Flip](ai/specs/01-card-flip.md)                 | Visual recall, concentration |
+| [Simon Says](ai/specs/02-simon-says.md)               | Pattern & sequence memory    |
+| [Number Sequence](ai/specs/03-number-sequence.md)     | Short-term numeric memory    |
+| [Object Disappears](ai/specs/04-object-disappears.md) | Visual attention             |
+| [Word Recall](ai/specs/05-word-recall.md)             | Verbal memory                |
+| [Pattern Copy](ai/specs/06-pattern-copy.md)           | Visual pattern memory        |
+| [Position Grid](ai/specs/07-position-grid.md)         | Spatial memory               |
 
 ## Stack
 
@@ -24,18 +24,76 @@ A cross-platform memory games app built with React, TypeScript, Ionic, and Capac
 | Build tool     | Vite 5                                               |
 | State          | Zustand                                              |
 | Animations     | Framer Motion                                        |
-| Sound          | Howler.js                                            |
+| Sound          | Web Audio API                                        |
 | Unit tests     | Vitest + React Testing Library                       |
 | E2E tests      | Playwright                                           |
 | Lint           | ESLint + `@typescript-eslint/no-explicit-any: error` |
 | Format         | Prettier                                             |
-| CI             | GitHub Actions                                       |
 
-## Getting started
+## Running the app
+
+### Web
 
 ```bash
 npm install
 npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+### Android
+
+**Prerequisites:** Android Studio installed, physical device or emulator with USB debugging enabled.
+
+```bash
+# Install dependencies
+npm install
+
+# Build web app and sync to Android
+npm run build
+npx cap sync android
+
+# Open in Android Studio
+npx cap open android
+```
+
+In Android Studio: wait for Gradle sync, select your device from the toolbar, click **Run** (▶).
+
+**First time only — generate app icons and splash:**
+```bash
+npm run cap:assets
+npx cap sync android
+```
+
+**Troubleshooting:**
+- Device not detected → enable USB debugging: Settings → Developer options → USB debugging
+- Samsung devices → Settings → Security and privacy → Auto Blocker → Off
+- Verify detection: run `adb devices` in a terminal — should show your device as `device` (not `unauthorized`)
+
+### iOS
+
+**Prerequisites:** Mac with Xcode 15+, Apple Developer account (free or paid).
+
+```bash
+# Install dependencies
+npm install
+
+# Build web app and sync to iOS
+npm run build
+npx cap sync ios
+
+# Open in Xcode
+npx cap open ios
+```
+
+In Xcode: select your target device or simulator from the scheme toolbar, click **Run** (▶).
+
+On a physical device for the first time: go to **Settings → General → VPN & Device Management** on the device and trust your developer certificate.
+
+**First time only — generate app icons and splash:**
+```bash
+npm run cap:assets
+npx cap sync ios
 ```
 
 ## Quality gates
@@ -43,19 +101,7 @@ npm run dev
 ```bash
 npm run check        # format + lint + typecheck + test + build
 npm run test:watch   # tests in watch mode during development
-```
-
-## Building for mobile
-
-```bash
-npm run build
-npx cap sync
-
-# Android (requires Android Studio)
-npx cap open android
-
-# iOS (requires Mac + Xcode)
-npx cap open ios
+npm run test:e2e     # Playwright end-to-end tests
 ```
 
 ## AI delivery framework
@@ -79,3 +125,7 @@ This project uses an AI feature delivery framework. Every feature is built by an
 2. Paste `ai/AGENT_EXECUTION_PROMPT.md` + the spec into the agent
 3. Agent plans → implements → tests → self-reviews → opens PR
 4. You review and merge
+
+## Contact
+
+info@xquiz.co.za

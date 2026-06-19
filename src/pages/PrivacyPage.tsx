@@ -55,8 +55,8 @@ export default function PrivacyPage() {
           <h2 className={styles.heading}>Contact</h2>
           <p className={styles.body}>
             If you have any questions about this privacy policy, please email{' '}
-            <a className={styles.link} href="mailto:PiyazheH@vertice.software">
-              PiyazheH@vertice.software
+            <a className={styles.link} href="mailto:info@xquiz.co.za">
+              info@xquiz.co.za
             </a>
             .
           </p>

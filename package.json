@@ -16,7 +16,7 @@
     "test:e2e": "playwright test",
     "check": "npm run format:check && npm run lint && npm run typecheck && npm run test && npm run build",
     "generate-assets": "node scripts/generate-assets.mjs",
-    "cap:assets": "npm run generate-assets && npx @capacitor/assets generate --iconBackgroundColor '#0f172a' --splashBackgroundColor '#0f172a' && node scripts/patch-android-assets.mjs",
+    "cap:assets": "npm run generate-assets && npx @capacitor/assets generate --android --iconBackgroundColor #0f172a --splashBackgroundColor #0f172a && node scripts/patch-android-assets.mjs",
     "cap:sync": "npx cap sync"
   },
   "dependencies": {
