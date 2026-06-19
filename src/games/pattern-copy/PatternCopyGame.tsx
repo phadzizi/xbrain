@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { GameLayout, PrimaryButton, ScoreDisplay } from '../../components';
 import { useSettingsStore } from '../../store/useSettingsStore';
 import { play } from '../../services/sound';
+import { hapticCorrect, hapticWrong } from '../../services/haptics';
 import { getBestScore, setBestScore } from '../../services/storage';
 import {
   generatePattern,
@@ -106,6 +107,7 @@ export default function PatternCopyGame() {
       setTotalScore(newScore);
       setStatus('correct');
       if (soundEnabled) play('correct');
+      void hapticCorrect();
       addTimeout(
         setTimeout(() => {
           const nextLevel = level + 1;
@@ -117,6 +119,7 @@ export default function PatternCopyGame() {
     } else {
       setStatus('wrong');
       if (soundEnabled) play('wrong');
+      void hapticWrong();
       addTimeout(
         setTimeout(() => {
           setBestScore(GAME_ID, totalScore);

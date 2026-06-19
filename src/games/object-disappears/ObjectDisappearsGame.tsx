@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { GameLayout, PrimaryButton, ScoreDisplay } from '../../components';
 import { useSettingsStore } from '../../store/useSettingsStore';
 import { play } from '../../services/sound';
+import { hapticCorrect, hapticWrong } from '../../services/haptics';
 import { getBestScore, setBestScore } from '../../services/storage';
 import {
   generateRound,
@@ -70,6 +71,7 @@ export default function ObjectDisappearsGame() {
 
     if (isCorrect) {
       if (soundEnabled) play('correct');
+      void hapticCorrect();
       const nextRoundsCompleted = roundsCompleted + 1;
       const newScore = calculateScore(nextRoundsCompleted);
       setRoundsCompleted(nextRoundsCompleted);
@@ -86,6 +88,7 @@ export default function ObjectDisappearsGame() {
       );
     } else {
       if (soundEnabled) play('wrong');
+      void hapticWrong();
       const finalScore = calculateScore(roundsCompleted);
       setStatus('wrong');
       addTimeout(

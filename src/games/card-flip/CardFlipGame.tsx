@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import { GameLayout, PrimaryButton, ScoreDisplay } from '../../components';
 import { useSettingsStore } from '../../store/useSettingsStore';
 import { play, type SoundType } from '../../services/sound';
+import { hapticCorrect } from '../../services/haptics';
 import { getBestScore, setBestScore } from '../../services/storage';
 import { createDeck, checkMatch, calculateScore, getGridSize } from './cardFlip.logic';
 import type { Card, GameStatus } from './cardFlip.types';
@@ -90,6 +91,7 @@ export default function CardFlipGame() {
 
     if (checkMatch(firstCard, card)) {
       playSound('correct');
+      void hapticCorrect();
       const updatedCards = cards.map((c) =>
         c.id === firstId || c.id === card.id ? { ...c, status: 'matched' as const } : c
       );

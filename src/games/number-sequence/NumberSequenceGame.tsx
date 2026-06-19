@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { GameLayout, PrimaryButton, ScoreDisplay } from '../../components';
 import { useSettingsStore } from '../../store/useSettingsStore';
 import { play } from '../../services/sound';
+import { hapticCorrect, hapticWrong } from '../../services/haptics';
 import { getBestScore, setBestScore } from '../../services/storage';
 import {
   generateSequence,
@@ -88,6 +89,7 @@ export default function NumberSequenceGame() {
 
     if (isCorrect) {
       if (soundEnabled) play('correct');
+      void hapticCorrect();
       const newScore = calculateScore(round);
       setScore(newScore);
       setStatus('correct');
@@ -103,6 +105,7 @@ export default function NumberSequenceGame() {
       );
     } else {
       if (soundEnabled) play('wrong');
+      void hapticWrong();
       setStatus('wrong');
       addTimeout(
         setTimeout(() => {

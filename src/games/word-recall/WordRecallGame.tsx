@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { GameLayout, PrimaryButton, ScoreDisplay } from '../../components';
 import { useSettingsStore } from '../../store/useSettingsStore';
 import { play } from '../../services/sound';
+import { hapticCorrect, hapticWrong } from '../../services/haptics';
 import { getBestScore, setBestScore } from '../../services/storage';
 import {
   drawWords,
@@ -63,6 +64,7 @@ export default function WordRecallGame() {
     setResults(recallResults);
     setRoundScore(rScore);
     setTotalScore((prev) => prev + rScore);
+    void (rScore > 0 ? hapticCorrect() : hapticWrong());
     setStatus('results');
   }
 
