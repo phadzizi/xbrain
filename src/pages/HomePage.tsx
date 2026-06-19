@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { GameLayout, GameCard } from '../components';
+import { getBestScore } from '../services/storage';
 import styles from './HomePage.module.css';
 
 type Game = {
@@ -71,6 +73,10 @@ const GAMES: Game[] = [
 ];
 
 export default function HomePage() {
+  const [scores] = useState<Record<string, number | null>>(() =>
+    Object.fromEntries(GAMES.map((g) => [g.id, getBestScore(g.id)]))
+  );
+
   return (
     <GameLayout>
       <div className={styles.header}>
@@ -99,6 +105,11 @@ export default function HomePage() {
                   </span>
                   <h2 className={styles.gameName}>{game.name}</h2>
                   <p className={styles.gameDesc}>{game.description}</p>
+                  {scores[game.id] !== null && (
+                    <p className={styles.bestScore} data-testid={`best-score-${game.id}`}>
+                      Best: {scores[game.id]}
+                    </p>
+                  )}
                 </GameCard>
               </Link>
             ) : (
@@ -108,6 +119,11 @@ export default function HomePage() {
                 </span>
                 <h2 className={styles.gameName}>{game.name}</h2>
                 <p className={styles.gameDesc}>{game.description}</p>
+                {scores[game.id] !== null && (
+                  <p className={styles.bestScore} data-testid={`best-score-${game.id}`}>
+                    Best: {scores[game.id]}
+                  </p>
+                )}
                 <span className={styles.badge}>Coming soon</span>
               </GameCard>
             )}
