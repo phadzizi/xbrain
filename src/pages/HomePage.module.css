@@ -18,8 +18,9 @@
   margin-top: var(--space-1);
 }
 
-.soundToggle {
+.settingsBtn {
   font-size: var(--text-xl);
+  font-family: var(--font-emoji);
   min-width: 44px;
   min-height: 44px;
   display: flex;
@@ -30,8 +31,13 @@
   transition: background-color var(--duration-fast) var(--ease-out);
 }
 
-.soundToggle:hover {
+.settingsBtn:hover {
   background-color: var(--color-surface);
+}
+
+.settingsBtn:focus-visible {
+  outline: 2px solid var(--color-primary-light);
+  outline-offset: 2px;
 }
 
 .grid {
