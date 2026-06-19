@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import HomePage from './pages/HomePage';
+import PrivacyPage from './pages/PrivacyPage';
 import CardFlipGame from './games/card-flip';
 import SimonGame from './games/simon-says';
 import NumberSequenceGame from './games/number-sequence';
@@ -20,6 +21,7 @@ export default function App() {
         <Route path="/games/word-recall" element={<WordRecallGame />} />
         <Route path="/games/pattern-copy" element={<PatternCopyGame />} />
         <Route path="/games/position-grid" element={<PositionGridGame />} />
+        <Route path="/privacy" element={<PrivacyPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
