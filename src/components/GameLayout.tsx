@@ -15,7 +15,12 @@ export default function GameLayout({ children, title, backHref }: Props) {
       {(title || backHref) && (
         <header className={styles.header}>
           {backHref && (
-            <a href={backHref} className={styles.back} aria-label="Go back">
+            <a
+              href={backHref}
+              className={styles.back}
+              aria-label="Go back"
+              data-testid="back-button"
+            >
               ←
             </a>
           )}

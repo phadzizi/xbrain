@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { GameLayout, GameCard } from '../components';
-import { useSettingsStore } from '../store/useSettingsStore';
 import styles from './HomePage.module.css';
 
 type Game = {
@@ -72,8 +71,6 @@ const GAMES: Game[] = [
 ];
 
 export default function HomePage() {
-  const { soundEnabled, toggleSound } = useSettingsStore();
-
   return (
     <GameLayout>
       <div className={styles.header}>
@@ -81,14 +78,14 @@ export default function HomePage() {
           <h1 className={styles.appName}>xbrain</h1>
           <p className={styles.tagline}>Train your memory, one game at a time.</p>
         </div>
-        <button
-          className={styles.soundToggle}
-          onClick={toggleSound}
-          aria-label={soundEnabled ? 'Mute sound' : 'Enable sound'}
-          data-testid="sound-toggle"
+        <Link
+          to="/settings"
+          className={styles.settingsBtn}
+          aria-label="Settings"
+          data-testid="settings-button"
         >
-          {soundEnabled ? '🔊' : '🔇'}
-        </button>
+          ⚙️
+        </Link>
       </div>
 
       <ul className={styles.grid} aria-label="Games">
