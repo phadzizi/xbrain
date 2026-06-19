@@ -67,7 +67,7 @@ test.describe('Settings — happy path', () => {
   });
 
   test('back link returns to home', async ({ page }) => {
-    await page.getByRole('link', { name: 'Go back' }).click();
+    await page.getByTestId('back-button').click();
     await expect(page).toHaveURL('/');
     await assertNoHorizontalScroll(page);
   });
