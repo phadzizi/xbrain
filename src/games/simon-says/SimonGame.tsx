@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { GameLayout, PrimaryButton, ScoreDisplay } from '../../components';
 import { useSettingsStore } from '../../store/useSettingsStore';
 import { play } from '../../services/sound';
+import { hapticCorrect, hapticWrong } from '../../services/haptics';
 import { getBestScore, setBestScore } from '../../services/storage';
 import {
   generateSequence,
@@ -123,6 +124,7 @@ export default function SimonGame() {
 
     if (!isCorrect) {
       if (soundEnabled) play('wrong');
+      void hapticWrong();
       setFlashAll(true);
       addTimeout(
         setTimeout(() => {
@@ -146,6 +148,7 @@ export default function SimonGame() {
     }
 
     // Round complete — extend sequence and start the next round
+    void hapticCorrect();
     const nextRound = round + 1;
     const newScore = calculateScore(round);
     const nextSeq = extendSequence(sequence);

@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { GameLayout, PrimaryButton, ScoreDisplay } from '../../components';
 import { useSettingsStore } from '../../store/useSettingsStore';
 import { play } from '../../services/sound';
+import { hapticCorrect, hapticWrong } from '../../services/haptics';
 import { getBestScore, setBestScore } from '../../services/storage';
 import type { ObjectItem } from '../object-disappears/objectDisappears.types';
 import {
@@ -95,6 +96,7 @@ export default function PositionGridGame() {
     setTotalScore((prev) => prev + result.roundScore);
     setStatus('results');
     if (soundEnabled) play(gameOver ? 'wrong' : 'correct');
+    void (gameOver ? hapticWrong() : hapticCorrect());
   }
 
   function handleNextRound() {
